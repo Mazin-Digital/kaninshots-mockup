@@ -18,7 +18,45 @@
   .kp-frame { width: 1440px; margin: 0 auto; }
   .kp-slice img { display: block; width: 100%; height: auto; user-select: none; -webkit-user-drag: none; }
   .kp-frame .kfs__decor { display: none; } /* corner fruit overlaps the heading at this scale */
-  @media (max-width: 899px) { .kp-frame { width: auto; } }
+
+  /* Mobile view: natural width on phones; on a computer, a centered phone-width column */
+  body.kp-mobile .kp-frame { width: auto; zoom: 1 !important; }
+  body.kp-mobile.kp-wide { background: #1b1b1d; }
+  body.kp-mobile.kp-wide .kp-frame {
+    width: 390px;
+    margin: 24px auto 96px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 0 0 10px #050505, 0 0 0 11px #333, 0 30px 80px rgba(0, 0, 0, .6);
+  }
+
+  /* Presenter controls (not part of the site) */
+  .kp-view {
+    position: fixed; top: 12px; right: 12px;
+    z-index: 60;
+    display: flex; gap: 2px;
+    padding: 4px;
+    background: rgba(15, 15, 15, .82);
+    border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 999px;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+  }
+  .kp-view button {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 12px;
+    border: 0; border-radius: 999px;
+    background: transparent;
+    color: #a1a1aa;
+    font: 500 13px/1 Poppins, sans-serif;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+  }
+  .kp-view button svg { width: 16px; height: 16px; }
+  .kp-view button:hover { color: #fff; }
+  .kp-view button[aria-pressed="true"] { background: #fff; color: #0d0d0d; }
+  .kp-view button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  @media (max-width: 480px) { .kp-view button span { display: none; } .kp-view button { padding: 8px 10px; } }
 
   /* Presenter shortcut (not part of the site) */
   .kp-jump {
@@ -47,9 +85,9 @@
 <body>
 
 <div class="kp-frame kpage" id="kp-frame">
-  <div class="kp-slice" data-slice="announcement"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/01-announcement.webp" width="1440" height="48"><img src="images/site/mobile/01-announcement.webp" width="390" height="48" alt="" decoding="async"></picture></div>
-  <div class="kp-slice" data-slice="header"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/02-header.webp" width="1440" height="112"><img src="images/site/mobile/02-header.webp" width="390" height="88" alt="" decoding="async"></picture></div>
-  <div class="kp-slice" data-slice="top"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/03-top.webp" width="1440" height="2513"><img src="images/site/mobile/03-top.webp" width="390" height="3693" alt="" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="announcement"><img data-desktop="images/site/desktop/01-announcement.webp" data-dw="1440" data-dh="48" data-mobile="images/site/mobile/01-announcement.webp" data-mw="390" data-mh="48" alt="" decoding="async"></div>
+  <div class="kp-slice" data-slice="header"><img data-desktop="images/site/desktop/02-header.webp" data-dw="1440" data-dh="112" data-mobile="images/site/mobile/02-header.webp" data-mw="390" data-mh="88" alt="" decoding="async"></div>
+  <div class="kp-slice" data-slice="top"><img data-desktop="images/site/desktop/03-top.webp" data-dw="1440" data-dh="2513" data-mobile="images/site/mobile/03-top.webp" data-mw="390" data-mh="3693" alt="" decoding="async"></div>
 
   <!-- ===== CHANGE 1: Pick Your Favorite Flavor (all three bottles) ===== -->
   <div id="change-flavors" class="kp-anchor">
@@ -199,7 +237,7 @@
 </section>
   </div>
 
-  <div class="kp-slice" data-slice="video-gallery"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/04-video-gallery.webp" width="1440" height="1079"><img src="images/site/mobile/04-video-gallery.webp" width="390" height="906" alt="" loading="lazy" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="video-gallery"><img data-desktop="images/site/desktop/04-video-gallery.webp" data-dw="1440" data-dh="1079" data-mobile="images/site/mobile/04-video-gallery.webp" data-mw="390" data-mh="906" alt="" loading="lazy" decoding="async"></div>
 
   <!-- ===== CHANGE 2: Build Your Custom Bundle (inline) ===== -->
   <div id="change-bundle" class="kp-anchor">
@@ -327,19 +365,30 @@
 </section>
   </div>
 
-  <div class="kp-slice" data-slice="our-features"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/05-our-features.webp" width="1440" height="1192"><img src="images/site/mobile/05-our-features.webp" width="390" height="528" alt="" loading="lazy" decoding="async"></picture></div>
-  <div class="kp-slice" data-slice="reviews"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/06-reviews.webp" width="1440" height="462"><img src="images/site/mobile/06-reviews.webp" width="390" height="505" alt="" loading="lazy" decoding="async"></picture></div>
-  <div class="kp-slice" data-slice="performance-slider"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/07-performance-slider.webp" width="1440" height="733"><img src="images/site/mobile/07-performance-slider.webp" width="390" height="884" alt="" loading="lazy" decoding="async"></picture></div>
-  <div class="kp-slice" data-slice="banner"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/08-banner.webp" width="1440" height="600"><img src="images/site/mobile/08-banner.webp" width="390" height="350" alt="" loading="lazy" decoding="async"></picture></div>
-  <div class="kp-slice" data-slice="featured-blog"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/09-featured-blog.webp" width="1440" height="869"><img src="images/site/mobile/09-featured-blog.webp" width="390" height="1325" alt="" loading="lazy" decoding="async"></picture></div>
-  <div class="kp-slice" data-slice="faq-simple"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/10-faq-simple.webp" width="1440" height="1221"><img src="images/site/mobile/10-faq-simple.webp" width="390" height="1870" alt="" loading="lazy" decoding="async"></picture></div>
-  <div class="kp-slice" data-slice="promo-banner"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/13-promo-banner.webp" width="1440" height="500"><img src="images/site/mobile/13-promo-banner.webp" width="390" height="360" alt="" loading="lazy" decoding="async"></picture></div>
-  <div class="kp-slice" data-slice="footer"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/14-footer.webp" width="1440" height="731"><img src="images/site/mobile/14-footer.webp" width="390" height="736" alt="" loading="lazy" decoding="async"></picture></div>
-  <div class="kp-slice" data-slice="disclaimer"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/15-disclaimer.webp" width="1440" height="243"><img src="images/site/mobile/15-disclaimer.webp" width="390" height="303" alt="" loading="lazy" decoding="async"></picture></div>
-  <div class="kp-slice" data-slice="disclaimer"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/16-disclaimer.webp" width="1440" height="229"><img src="images/site/mobile/16-disclaimer.webp" width="390" height="396" alt="" loading="lazy" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="our-features"><img data-desktop="images/site/desktop/05-our-features.webp" data-dw="1440" data-dh="1192" data-mobile="images/site/mobile/05-our-features.webp" data-mw="390" data-mh="528" alt="" loading="lazy" decoding="async"></div>
+  <div class="kp-slice" data-slice="reviews"><img data-desktop="images/site/desktop/06-reviews.webp" data-dw="1440" data-dh="462" data-mobile="images/site/mobile/06-reviews.webp" data-mw="390" data-mh="505" alt="" loading="lazy" decoding="async"></div>
+  <div class="kp-slice" data-slice="performance-slider"><img data-desktop="images/site/desktop/07-performance-slider.webp" data-dw="1440" data-dh="733" data-mobile="images/site/mobile/07-performance-slider.webp" data-mw="390" data-mh="884" alt="" loading="lazy" decoding="async"></div>
+  <div class="kp-slice" data-slice="banner"><img data-desktop="images/site/desktop/08-banner.webp" data-dw="1440" data-dh="600" data-mobile="images/site/mobile/08-banner.webp" data-mw="390" data-mh="350" alt="" loading="lazy" decoding="async"></div>
+  <div class="kp-slice" data-slice="featured-blog"><img data-desktop="images/site/desktop/09-featured-blog.webp" data-dw="1440" data-dh="869" data-mobile="images/site/mobile/09-featured-blog.webp" data-mw="390" data-mh="1325" alt="" loading="lazy" decoding="async"></div>
+  <div class="kp-slice" data-slice="faq-simple"><img data-desktop="images/site/desktop/10-faq-simple.webp" data-dw="1440" data-dh="1221" data-mobile="images/site/mobile/10-faq-simple.webp" data-mw="390" data-mh="1870" alt="" loading="lazy" decoding="async"></div>
+  <div class="kp-slice" data-slice="promo-banner"><img data-desktop="images/site/desktop/13-promo-banner.webp" data-dw="1440" data-dh="500" data-mobile="images/site/mobile/13-promo-banner.webp" data-mw="390" data-mh="360" alt="" loading="lazy" decoding="async"></div>
+  <div class="kp-slice" data-slice="footer"><img data-desktop="images/site/desktop/14-footer.webp" data-dw="1440" data-dh="731" data-mobile="images/site/mobile/14-footer.webp" data-mw="390" data-mh="736" alt="" loading="lazy" decoding="async"></div>
+  <div class="kp-slice" data-slice="disclaimer"><img data-desktop="images/site/desktop/15-disclaimer.webp" data-dw="1440" data-dh="243" data-mobile="images/site/mobile/15-disclaimer.webp" data-mw="390" data-mh="303" alt="" loading="lazy" decoding="async"></div>
+  <div class="kp-slice" data-slice="disclaimer"><img data-desktop="images/site/desktop/16-disclaimer.webp" data-dw="1440" data-dh="229" data-mobile="images/site/mobile/16-disclaimer.webp" data-mw="390" data-mh="396" alt="" loading="lazy" decoding="async"></div>
 </div>
 
 <div class="mnj_toast_bundleinline" role="status" aria-live="polite" data-mnj-toast></div>
+
+<div class="kp-view" role="group" aria-label="Preview as">
+  <button type="button" data-view="desktop" aria-pressed="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    <span>Desktop</span>
+  </button>
+  <button type="button" data-view="mobile" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+    <span>Mobile</span>
+  </button>
+</div>
 
 <nav class="kp-jump" aria-label="Jump to a proposed change">
   <span>Jump to</span>
@@ -348,20 +397,57 @@
 </nav>
 
 <script>
-  // Desktop: lay the page out at the live site's 1440px width and scale it to the window. Phones/tablets: natural width.
+  // View handling. Desktop: the page is laid out at the live site's 1440px width and scaled to the window.
+  // Mobile: phone layout (natural width on a phone, a centered 390px column on a computer).
+  // Defaults to the device type; the top-right switch (or ?view=mobile / ?view=desktop) overrides it.
   (function () {
     var frame = document.getElementById('kp-frame');
-    function fit() {
-      var vw = document.documentElement.clientWidth;
-      frame.style.zoom = vw >= 900 ? vw / 1440 : '';
+    var slices = frame.querySelectorAll('img[data-desktop]');
+    var buttons = document.querySelectorAll('.kp-view button');
+    var params = new URLSearchParams(location.search);
+    var chosen = params.get('view'); // 'desktop' | 'mobile' | null (automatic)
+    var current = null;
+
+    function wantedView() {
+      if (chosen === 'desktop' || chosen === 'mobile') return chosen;
+      return document.documentElement.clientWidth >= 900 ? 'desktop' : 'mobile';
     }
-    fit();
-    window.addEventListener('resize', fit);
+    function apply() {
+      var view = wantedView();
+      var vw = document.documentElement.clientWidth;
+      document.body.classList.toggle('kp-mobile', view === 'mobile');
+      document.body.classList.toggle('kp-wide', vw >= 600);
+      frame.style.zoom = view === 'desktop' ? vw / 1440 : '';
+      if (view !== current) {
+        current = view;
+        var k = view === 'desktop' ? 'd' : 'm';
+        slices.forEach(function (img) {
+          img.width = img.dataset[k + 'w'];
+          img.height = img.dataset[k + 'h'];
+          img.src = img.dataset[view];
+        });
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.view === view)); });
+      }
+    }
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var anchor = document.elementFromPoint(innerWidth / 2, innerHeight / 3);
+        var section = anchor && anchor.closest('.kp-anchor, .kp-slice');
+        chosen = b.dataset.view;
+        params.set('view', chosen);
+        history.replaceState(null, '', '?' + params.toString() + location.hash);
+        apply();
+        // keep roughly the same part of the page in view after switching
+        if (section) section.scrollIntoView({ block: 'start' });
+      });
+    });
+    apply();
+    window.addEventListener('resize', apply);
     document.querySelectorAll('.kp-jump a').forEach(function (a) {
       a.addEventListener('click', function (e) {
         e.preventDefault();
         document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        history.replaceState(null, '', a.getAttribute('href'));
+        history.replaceState(null, '', location.search + a.getAttribute('href'));
       });
     });
   })();

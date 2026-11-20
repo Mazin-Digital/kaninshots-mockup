@@ -5,7 +5,7 @@ Working HTML mockups of two proposed changes to the kaninshot.com homepage, for 
 | Page | What it shows |
 | --- | --- |
 | `index.html` | Landing page linking to everything below |
-| `homepage.html` | The live homepage as a static backdrop (screenshots), with both new sections working in their real spots |
+| `homepage.html` | The live homepage as a static backdrop (screenshots), with both new sections working in their real spots. Desktop / Mobile switch in the top right; `?view=mobile` links straight to the phone view |
 | `flavor-section.html` | "Pick Your Favorite Flavor" with all three bottles visible; each bottle (and list row) links to its product page |
 | `bundle-builder.html` | The header-popup "Build Your Custom Bundle" builder placed inline on the homepage, so customers can mix flavors (e.g. 1 Napa Blast + 1 Cherry On Top) |
 
@@ -20,6 +20,7 @@ The widget code is shared: `css/` and `js/` hold one copy of each section, used 
 
 ## Notes for the Shopify build
 
+- On phones (under 640px) the bundle builder uses compact product rows so the summary stays close; desktop and tablet match the popup 1:1.
 - The bundle builder reuses the popup's markup, styles and logic with a `_bundleinline` class suffix and section-scoped selectors, so it can sit on the same page as the existing popup.
 - In the mockup, "Add Bundle To cart" is simulated. When `window.Shopify` exists, it posts each flavor as its own line item to `/cart/add.js`, the same way the popup does. The 20% / 30% shown is calculated on the page only, so confirm the store's automatic discount also applies to mixed-flavor carts.
 - The live site references the "Nunito Sans" and "Bricolage Grotesque" fonts but never loads them. The mockups load Nunito Sans from Google Fonts, and the theme should load it too.

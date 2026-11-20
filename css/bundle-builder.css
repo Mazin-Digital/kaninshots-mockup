@@ -545,3 +545,62 @@
 }
 .mnj_toast_bundleinline.is-visible { opacity: 1; transform: translate(-50%, 0); }
 .mnj_toast_bundleinline strong { color: #a7f3d0; }
+
+/* ==========================================================================
+   Phone layout (new): compact product rows so the bundle summary stays close,
+   readable subtitle, and a pack selector that fits small screens.
+   Desktop/tablet are unchanged and match the header popup 1:1.
+   ========================================================================== */
+@container kpage (max-width: 639px) {
+  .mnj_inner_bundleinline { grid-template-columns: minmax(0, 1fr); }
+  .mnj_tier_select_bundleinline { min-width: 0; }
+  .mnj_main_col_bundleinline { padding: 28px 16px 20px; min-width: 0; }
+  .mnj_header_bundleinline { margin-bottom: 20px; }
+  .mnj_title_bundleinline { font-size: 30px; line-height: 1.1; }
+  .mnj_subtitle_bundleinline { font-size: 16px; line-height: 1.45; color: rgba(255, 255, 255, .85); }
+
+  .mnj_selector_row_bundleinline { margin-bottom: 16px; }
+  .mnj_dropdown_wrapper_bundleinline { padding: 2px 8px; }
+  .mnj_tier_select_bundleinline { font-size: 17px; padding: 12px 120px 12px 6px; }
+  .mnj_dropdown_badge_bundleinline { right: 38px; }
+  .mnj_active_discount_badge_bundleinline { font-size: 14px; padding: 3px 8px; }
+  .mnj_dropdown_arrow_bundleinline { right: 14px; }
+
+  .mnj_grid_bundleinline { gap: 10px; }
+  .mnj_card_bundleinline {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px 10px 10px;
+  }
+  .mnj_card_image_wrapper_bundleinline { width: 72px; margin: 0; border-radius: 8px; }
+  .mnj_card_info_bundleinline { margin: 0; text-align: left; }
+  .mnj_card_title_bundleinline { font-size: 14px; line-height: 18px; margin-bottom: 4px; }
+  .mnj_card_price_bundleinline { font-size: 14px; }
+  .mnj_card_bundleinline .mnj_stepper_bundleinline { max-width: none; }
+  .mnj_card_bundleinline .mnj_stepper_btn_bundleinline { width: 36px; height: 36px; font-size: 18px; }
+  .mnj_card_bundleinline .mnj_stepper_val_bundleinline { width: 24px; font-size: 13px; }
+
+  .mnj_sidebar_bundleinline { padding: 20px 12px 24px; }
+  .mnj_sidebar_inner_bundleinline { padding: 18px 16px; }
+  .mnj_sidebar_title_bundleinline { font-size: 26px; line-height: 1.15; margin-bottom: 6px; }
+  .mnj_sidebar_item_details_bundleinline h4 { max-width: 150px; }
+}
+
+/* Narrow phones (e.g. iPhone SE): quantity buttons go under the name; slimmer pack selector */
+@container kpage (max-width: 379px) {
+  .mnj_card_bundleinline { grid-template-columns: 64px minmax(0, 1fr); row-gap: 8px; }
+  .mnj_card_image_wrapper_bundleinline { width: 64px; grid-row: span 2; }
+  .mnj_card_action_row_bundleinline { justify-content: flex-start; }
+  .mnj_tier_select_bundleinline { font-size: 15px; padding-right: 100px; }
+  .mnj_active_discount_badge_bundleinline { font-size: 13px; }
+  .mnj_active_discount_badge_bundleinline svg { display: none; }
+  .mnj_title_bundleinline { font-size: 27px; }
+  .mnj_sidebar_inner_bundleinline { padding: 16px 12px; }
+  .mnj_sidebar_items_bundleinline { padding: 8px 10px; }
+  .mnj_sidebar_item_left_bundleinline { gap: 8px; min-width: 0; }
+  .mnj_sidebar_item_img_bundleinline { width: 36px; height: 36px; flex: none; }
+  .mnj_sidebar_item_details_bundleinline h4 { max-width: 112px; padding-right: 4px; }
+  .mnj_sidebar_item_price_bundleinline { font-size: 14px; }
+}
