@@ -4,19 +4,20 @@ Working HTML mockups of two proposed changes to the kaninshot.com homepage, for 
 
 | Page | What it shows |
 | --- | --- |
-| `index.html` | Landing page linking to everything below |
-| `homepage.html` | The live homepage as a static backdrop (screenshots), with both new sections working in their real spots. Desktop / Mobile switch in the top right; `?view=mobile` links straight to the phone view |
-| `flavor-section.html` | "Pick Your Favorite Flavor" with all three bottles visible; each bottle (and list row) links to its product page |
-| `bundle-builder.html` | The header-popup "Build Your Custom Bundle" builder placed inline on the homepage, so customers can mix flavors (e.g. 1 Napa Blast + 1 Cherry On Top) |
+| `index.html` | **The presentation.** The live homepage as a static backdrop (screenshots), with both new sections working in their real spots. Desktop / Mobile switch in the top right; `?view=mobile` opens straight to the phone view |
+| `flavor-section.html` | The "Pick Your Favorite Flavor" section on its own: all three bottles visible, each linking to its product page |
+| `bundle-builder.html` | The bundle builder on its own: the header-popup builder placed inline, so customers can mix flavors (e.g. 1 Napa Blast + 1 Cherry On Top) |
+
+`homepage.html` only redirects to `index.html`, so older links keep working.
 
 All images are stored in `images/`, so the pages don't depend on the live store's CDN. Only the Google Fonts load from the web.
 
-The widget code is shared: `css/` and `js/` hold one copy of each section, used by both the standalone pages and `homepage.html`. The homepage backdrop is in `images/site/` (desktop and mobile captures). Social media sections are left out on purpose.
+The widget code is shared: `css/` and `js/` hold one copy of each section, used by both the standalone pages and `index.html`. The homepage backdrop is in `images/site/` (desktop and mobile captures). Social media sections are left out on purpose.
 
 ## Viewing
 
 - **Live:** published with GitHub Pages from the `main` branch, root folder.
-- **Locally:** open `index.html` in a browser, or run `python3 -m http.server` in this folder and visit http://localhost:8000.
+- **Locally:** run `python3 -m http.server` in this folder and visit http://localhost:8000.
 
 ## Notes for the Shopify build
 
