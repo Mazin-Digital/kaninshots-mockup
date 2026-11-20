@@ -4,7 +4,7 @@ Working HTML mockups of two proposed changes to the kaninshot.com homepage, for 
 
 | Page | What it shows |
 | --- | --- |
-| `index.html` | **The presentation.** The live homepage as a static backdrop (screenshots), with both new sections working in their real spots. Desktop / Mobile switch in the top right; `?view=mobile` opens straight to the phone view |
+| `index.html` | **The presentation.** The live homepage as a muted grey, non-interactive backdrop (screenshots), with both new sections working in full color in their real spots. Desktop / Mobile switch in the top right; `?view=mobile` opens straight to the phone view |
 | `flavor-section.html` | The "Pick Your Favorite Flavor" section on its own: all three bottles visible, each linking to its product page |
 | `bundle-builder.html` | The bundle builder on its own: the header-popup builder placed inline, so customers can mix flavors (e.g. 1 Napa Blast + 1 Cherry On Top) |
 

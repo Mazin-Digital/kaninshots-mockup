@@ -17,6 +17,9 @@
      and the working widgets stay in proportion. */
   .kp-frame { width: 1440px; margin: 0 auto; }
   .kp-slice img { display: block; width: 100%; height: auto; user-select: none; -webkit-user-drag: none; }
+  /* The rest of the site is a muted grey backdrop so the two new sections stand out */
+  .kp-slice { pointer-events: none; cursor: default; }
+  .kp-slice img { filter: grayscale(1) brightness(.55) contrast(.9); }
   .kp-frame .kfs__decor { display: none; } /* corner fruit overlaps the heading at this scale */
 
   /* Mobile view: natural width on phones; on a computer, a centered phone-width column */
