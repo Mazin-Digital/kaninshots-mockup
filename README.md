@@ -4,11 +4,14 @@ Working HTML mockups of two proposed changes to the kaninshot.com homepage, for 
 
 | Page | What it shows |
 | --- | --- |
-| `index.html` | Landing page linking to both mockups |
+| `index.html` | Landing page linking to everything below |
+| `homepage.html` | The live homepage as a static backdrop (screenshots), with both new sections working in their real spots |
 | `flavor-section.html` | "Pick Your Favorite Flavor" with all three bottles visible; each bottle (and list row) links to its product page |
 | `bundle-builder.html` | The header-popup "Build Your Custom Bundle" builder placed inline on the homepage, so customers can mix flavors (e.g. 1 Napa Blast + 1 Cherry On Top) |
 
 All images are stored in `images/`, so the pages don't depend on the live store's CDN. Only the Google Fonts load from the web.
+
+The widget code is shared: `css/` and `js/` hold one copy of each section, used by both the standalone pages and `homepage.html`. The homepage backdrop is in `images/site/` (desktop and mobile captures). Social media sections are left out on purpose.
 
 ## Viewing
 

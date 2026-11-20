@@ -31,7 +31,8 @@
   h1 { margin: 0; font-size: clamp(32px, 6vw, 56px); font-weight: 800; line-height: 1.1; }
   h1 em { display: block; font-weight: 200; }
   .lede { margin: 16px 0 0; max-width: 620px; color: var(--muted); }
-  .grid { display: grid; gap: 24px; margin-top: 48px; }
+  .grid { display: grid; gap: 24px; margin-top: 24px; }
+  .card--feature { margin-top: 48px; }
   @media (min-width: 860px) { .grid { grid-template-columns: 1fr 1fr; } }
   .card {
     display: flex; flex-direction: column;
@@ -59,6 +60,20 @@
 <main>
   <h1>Kanin Homepage <em>Mockups</em></h1>
   <p class="lede">Working previews of two proposed homepage changes. Everything is clickable; resize the window or open on a phone to see the mobile layouts.</p>
+
+  <a class="card card--feature" href="homepage.html">
+    <img src="images/preview-homepage.jpg" alt="Preview of the Kanin homepage with both changes in place" width="1440" height="720">
+    <div class="card__body">
+      <span class="tag">Start here</span>
+      <h2>Both changes, on the homepage</h2>
+      <ul>
+        <li>The live homepage, with both new sections in their real spots.</li>
+        <li>Only the new sections are interactive; the rest of the page is a static backdrop.</li>
+        <li>Use the “Jump to” bar at the bottom to go straight to each change.</li>
+      </ul>
+      <span class="open">Open homepage preview <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </div>
+  </a>
 
   <div class="grid">
     <a class="card" href="flavor-section.html">

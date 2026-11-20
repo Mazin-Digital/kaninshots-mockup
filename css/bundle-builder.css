@@ -1,0 +1,547 @@
+/* Kanin homepage bundle builder: the header-popup builder, placed inline. */
+/* Page wrapper: widgets size themselves to this container (works inside the scaled homepage preview too) */
+.kpage { container: kpage / inline-size; }
+
+.mnj_section_bundleinline, .mnj_section_bundleinline *,
+.mnj_section_bundleinline *::before, .mnj_section_bundleinline *::after { box-sizing: border-box; }
+.mnj_section_bundleinline button { font-family: inherit; }
+
+/* ==========================================================================
+   Homepage section wrapper (replaces the old "Build Your Own Bundle" widget)
+   ========================================================================== */
+.mnj_section_bundleinline {
+  background-color: #0d0d0d;
+  color: #ffffff;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  padding: 60px 20px;
+}
+@container kpage (max-width: 640px) {
+  .mnj_section_bundleinline { padding: 40px 12px; }
+}
+
+/* ==========================================================================
+   Everything below is the header-popup Bundle Builder's stylesheet, 1:1.
+   Only changes: class suffix (_bundlebuild -> _bundleinline), and the
+   fixed-position modal / backdrop / close button / 90vh scroll removed so it
+   sits inline on the page.
+   ========================================================================== */
+.mnj_section_bundleinline {
+  --mnj-primary: #3a3a3c;
+  --mnj-accent: #3b8252;
+  --mnj-bg: #0d0d0d;
+  --mnj-border: #262626;
+  --mnj-text: #ffffff;
+  --mnj-muted: #a1a1aa;
+  --mnj-radius: 16px;
+}
+/* Panel with red atmospheric glow (was .mnj_popup_bundlebuild) */
+.mnj_panel_bundleinline {
+  position: relative;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  background: radial-gradient(circle at 100% 100%, #5a1216 0%, #120506 35%, #050505 70%);
+  border: 1px solid var(--mnj-border);
+  border-radius: var(--mnj-radius);
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.9), 0 0 40px rgba(180, 20, 30, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.mnj_inner_bundleinline {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@container kpage (min-width: 992px) {
+  .mnj_inner_bundleinline { grid-template-columns: 1fr; }
+  .mnj_inner_bundleinline.mnj_has_selection_bundleinline { grid-template-columns: 1.4fr 1fr; }
+}
+.mnj_main_col_bundleinline { padding: 32px 24px; }
+@container kpage (min-width: 768px) {
+  .mnj_main_col_bundleinline { padding: 40px; }
+}
+.mnj_header_bundleinline {
+  margin-bottom: 28px;
+  text-align: center;
+}
+.mnj_title_bundleinline {
+  font-size: 28px;
+  font-family: "Nunito Sans";
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0%;
+  text-transform: capitalize;
+  color: var(--mnj-text);
+  margin: 0 0 8px 0;
+  font-style: italic;
+}
+@container kpage (min-width: 768px) {
+  .mnj_title_bundleinline { font-size: 64px; }
+}
+.mnj_subtitle_bundleinline {
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 21px;
+  letter-spacing: 0%;
+  color: var(--mnj-text);
+  margin: 0;
+}
+/* Selector Row & Dark Pill Dropdown */
+.mnj_selector_row_bundleinline { margin-bottom: 28px; }
+.mnj_dropdown_wrapper_bundleinline {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(20, 20, 20, 0.8);
+  padding: 4px 12px;
+}
+.mnj_tier_select_bundleinline {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--mnj-text);
+  padding: 10px 40px 10px 8px;
+  cursor: pointer;
+  outline: none;
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21px;
+  letter-spacing: 0%;
+  text-transform: capitalize;
+}
+.mnj_tier_select_bundleinline option {
+  background-color: #121212;
+  color: #ffffff;
+}
+.mnj_dropdown_badge_bundleinline {
+  position: absolute;
+  right: 44px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.mnj_active_discount_badge_bundleinline {
+  background: var(--mnj-accent);
+  color: #ffffff;
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0%;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.mnj_dropdown_arrow_bundleinline {
+  position: absolute;
+  right: 18px;
+  pointer-events: none;
+  color: var(--mnj-text);
+  display: flex;
+  align-items: center;
+}
+/* Product Cards Grid */
+.mnj_grid_bundleinline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@container kpage (min-width: 640px) {
+  .mnj_grid_bundleinline { grid-template-columns: repeat(2, 1fr); }
+}
+@container kpage (min-width: 992px) {
+  .mnj_inner_bundleinline.mnj_has_selection_bundleinline .mnj_grid_bundleinline,
+  .mnj_inner_bundleinline:not(.mnj_has_selection_bundleinline) .mnj_grid_bundleinline {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.mnj_card_bundleinline {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+}
+.mnj_card_bundleinline:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+}
+.mnj_card_image_wrapper_bundleinline {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.mnj_card_image_wrapper_bundleinline img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.mnj_card_bundleinline:hover .mnj_card_image_wrapper_bundleinline img { transform: scale(1.04); }
+.mnj_card_info_bundleinline {
+  margin-bottom: 14px;
+  text-align: center;
+}
+.mnj_card_title_bundleinline {
+  font-family: "Nunito Sans";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: var(--mnj-text);
+  margin: 0 0 6px 0;
+}
+.mnj_card_price_bundleinline {
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--mnj-muted);
+  margin: 0;
+}
+.mnj_card_action_row_bundleinline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Stepper / Plus-Minus Action Controls */
+.mnj_stepper_bundleinline {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  max-width: 70px;
+}
+.mnj_stepper_btn_bundleinline {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--mnj-text);
+  transition: background 0.15s ease;
+  padding: 0;
+}
+.mnj_stepper_btn_bundleinline:hover:not(:disabled) { background: rgba(255, 255, 255, 0.15); }
+.mnj_stepper_btn_bundleinline:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+.mnj_stepper_val_bundleinline {
+  width: 28px;
+  text-align: center;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: var(--mnj-text);
+}
+/* Sidebar Column */
+.mnj_sidebar_bundleinline {
+  display: none;
+  background: rgba(0, 0, 0, 0.25);
+  border-top: 1px solid var(--mnj-border);
+  padding: 32px 24px;
+}
+@container kpage (min-width: 992px) {
+  .mnj_sidebar_bundleinline {
+    border-top: none;
+    border-left: 1px solid var(--mnj-border);
+    padding: 32px;
+  }
+}
+.mnj_inner_bundleinline.mnj_has_selection_bundleinline .mnj_sidebar_bundleinline {
+  display: block;
+  animation: mnjFadeInSidebarInline 0.35s ease forwards;
+}
+@keyframes mnjFadeInSidebarInline {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.mnj_sidebar_inner_bundleinline {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+}
+.mnj_sidebar_header_bundleinline { margin-bottom: 16px; }
+.mnj_sidebar_title_bundleinline {
+  font-family: "Nunito Sans";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 21px;
+  letter-spacing: 0%;
+  text-transform: capitalize;
+  color: var(--mnj-text);
+  margin: 0 0 10px 0;
+}
+.mnj_sidebar_meta_row_bundleinline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mnj_sidebar_subtitle_bundleinline {
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: var(--mnj-muted);
+}
+.mnj_sidebar_mini_badge_bundleinline {
+  background: var(--mnj-accent);
+  color: #ffffff;
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+/* Sidebar Selected Items Box */
+.mnj_sidebar_items_bundleinline {
+  max-height: 240px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px;
+}
+.mnj_empty_sidebar_state_bundleinline {
+  font-size: 13px;
+  color: var(--mnj-muted);
+  text-align: center;
+  padding: 16px 0;
+}
+.mnj_sidebar_item_row_bundleinline {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+.mnj_sidebar_item_row_bundleinline:last-child { border-bottom: none; }
+.mnj_sidebar_item_left_bundleinline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mnj_sidebar_item_img_bundleinline {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mnj_sidebar_item_img_bundleinline img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.mnj_sidebar_item_details_bundleinline h4 {
+  font-family: "Nunito Sans";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--mnj-text);
+  margin: 0 0 2px 0;
+  max-width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mnj_sidebar_item_details_bundleinline p {
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--mnj-muted);
+  margin: 0 0 6px 0;
+}
+.mnj_sidebar_item_right_bundleinline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mnj_sidebar_item_price_bundleinline {
+  font-family: "Nunito Sans";
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--mnj-text);
+}
+.mnj_sidebar_item_remove_bundleinline {
+  position: absolute;
+  top: 6px;
+  right: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--mnj-muted);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s ease;
+}
+.mnj_sidebar_item_remove_bundleinline:hover { color: #ef4444; }
+/* Totals */
+.mnj_sidebar_totals_bundleinline {
+  padding: 8px 0;
+  margin-bottom: 16px;
+}
+.mnj_total_line_bundleinline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: var(--mnj-muted);
+  margin-bottom: 8px;
+}
+.mnj_total_line_bundleinline span:last-child {
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--mnj-text);
+}
+.mnj_discount_line_bundleinline span { color: var(--mnj-text) !important; }
+.mnj_separator_bundleinline {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 12px 0;
+}
+.mnj_grand_total_line_bundleinline {
+  font-family: "Nunito Sans";
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--mnj-text);
+  margin-bottom: 0;
+}
+.mnj_price_display_group_bundleinline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mnj_compare_price_bundleinline {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--mnj-muted);
+  text-decoration: line-through;
+}
+.mnj_final_price_bundleinline {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--mnj-text);
+}
+/* Progress Notice */
+.mnj_progress_notice_bundleinline {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-family: "Nunito Sans";
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.mnj_progress_notice_bundleinline.mnj_complete_notice_bundleinline {
+  background: rgba(45, 106, 79, 0.25);
+  border-color: rgba(45, 106, 79, 0.5);
+  color: #a7f3d0;
+}
+/* CTA Button */
+.mnj_cta_btn_bundleinline {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+.mnj_cta_btn_bundleinline:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.mnj_cta_btn_bundleinline:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.mnj_spinner_bundleinline {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: mnjSpinInline 0.6s linear infinite;
+}
+.mnj_cta_btn_bundleinline.mnj_loading_bundleinline .mnj_spinner_bundleinline { display: inline-block; }
+.mnj_cta_btn_bundleinline.mnj_loading_bundleinline .mnj_cta_text_bundleinline { opacity: 0.8; }
+@keyframes mnjSpinInline { to { transform: rotate(360deg); } }
+
+/* ---------- Mockup-only: "added to cart" toast (live site opens the real cart drawer) ---------- */
+.mnj_toast_bundleinline {
+  position: fixed;
+  left: 50%; bottom: 24px;
+  transform: translate(-50%, 20px);
+  max-width: calc(100% - 32px);
+  background: #141414;
+  border: 1px solid rgba(45, 106, 79, 0.6);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-family: "Nunito Sans";
+  font-size: 15px;
+  line-height: 1.4;
+  box-shadow: 0 15px 40px rgba(0,0,0,.6);
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease;
+  z-index: 100;
+}
+.mnj_toast_bundleinline.is-visible { opacity: 1; transform: translate(-50%, 0); }
+.mnj_toast_bundleinline strong { color: #a7f3d0; }

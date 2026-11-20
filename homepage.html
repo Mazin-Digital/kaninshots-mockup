@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kanin Homepage Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,200&family=Nunito+Sans:ital,wght@0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/flavor-section.css">
+<link rel="stylesheet" href="css/bundle-builder.css">
+<style>
+  html, body { margin: 0; }
+  body { background: #0d0d0d; -webkit-font-smoothing: antialiased; }
+  /* Desktop: laid out at the live site's 1440px width and scaled to the window, so the screenshots
+     and the working widgets stay in proportion. */
+  .kp-frame { width: 1440px; margin: 0 auto; }
+  .kp-slice img { display: block; width: 100%; height: auto; user-select: none; -webkit-user-drag: none; }
+  .kp-frame .kfs__decor { display: none; } /* corner fruit overlaps the heading at this scale */
+  @media (max-width: 899px) { .kp-frame { width: auto; } }
+
+  /* Presenter shortcut (not part of the site) */
+  .kp-jump {
+    position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%);
+    z-index: 50;
+    display: flex; align-items: center; gap: 4px;
+    padding: 5px;
+    background: rgba(15, 15, 15, .82);
+    border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 999px;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+    font: 500 13px/1 Poppins, sans-serif;
+    white-space: nowrap;
+  }
+  .kp-jump a {
+    color: #fff; text-decoration: none;
+    padding: 9px 14px; border-radius: 999px;
+    transition: background .2s ease;
+  }
+  .kp-jump a:hover, .kp-jump a:focus-visible { background: rgba(255, 255, 255, .14); outline: none; }
+  .kp-jump span { color: #a1a1aa; padding: 0 6px 0 10px; }
+  @media (max-width: 420px) { .kp-jump span { display: none; } .kp-jump { font-size: 12px; } }
+</style>
+</head>
+<body>
+
+<div class="kp-frame kpage" id="kp-frame">
+  <div class="kp-slice" data-slice="announcement"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/01-announcement.webp" width="1440" height="48"><img src="images/site/mobile/01-announcement.webp" width="390" height="48" alt="" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="header"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/02-header.webp" width="1440" height="112"><img src="images/site/mobile/02-header.webp" width="390" height="88" alt="" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="top"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/03-top.webp" width="1440" height="2513"><img src="images/site/mobile/03-top.webp" width="390" height="3693" alt="" decoding="async"></picture></div>
+
+  <!-- ===== CHANGE 1: Pick Your Favorite Flavor (all three bottles) ===== -->
+  <div id="change-flavors" class="kp-anchor">
+  <section class="kfs" id="kfs">
+  <!-- Background gradients – one per flavor, cross-faded on hover (same gradients as live) -->
+  <div class="kfs__bg is-active" data-flavor="cherry"
+       style="--background: linear-gradient(180deg, rgba(174, 44, 47, 1) 3%, rgba(8, 6, 6, 1) 100%);">
+    <img class="kfs__decor kfs__decor--left" style="--d:2.5" alt=""
+         src="images/decor-cherry-280.png">
+    <img class="kfs__decor kfs__decor--right" style="--d:2.3" alt=""
+         src="images/decor-cherry-280.png">
+  </div>
+  <div class="kfs__bg" data-flavor="napa"
+       style="--background: linear-gradient(180deg, rgba(0, 255, 38, 1), rgba(8, 6, 6, 1) 99%);">
+    <img class="kfs__decor kfs__decor--left" style="--d:2.5" alt=""
+         src="images/decor-grapes-280.png">
+    <img class="kfs__decor kfs__decor--right" style="--d:2.3" alt=""
+         src="images/decor-grapes-280.png">
+  </div>
+  <div class="kfs__bg" data-flavor="candy"
+       style="--background: linear-gradient(180deg, rgba(23, 75, 133, 1), rgba(8, 6, 6, 1) 100%);">
+    <img class="kfs__decor kfs__decor--left" style="--d:2.5" alt=""
+         src="images/decor-candy-280.png">
+    <img class="kfs__decor kfs__decor--right" style="--d:2.3" alt=""
+         src="images/decor-candy-280.png">
+  </div>
+
+  <div class="kfs__container">
+    <div class="kfs__wrapper">
+
+      <div class="kfs__text-wrapper">
+        <h2 class="kfs__heading">
+          <span>PICK YOUR</span>
+          <span><em>FAVORITE FLAVOR</em></span>
+        </h2>
+        <div class="kfs__text">Peak performance, bottled. Kanin fuels steady energy, sharper focus, and real endurance — no crash, no compromise.</div>
+
+        <!-- Same glass list as live, but each row is now a link and highlights its bottle -->
+        <nav class="kfs__row" aria-label="Flavors">
+          <div class="kfs__row-wrapper">
+            <a class="kfs__item is-active" data-flavor="cherry" style="--accent:#9e292b" href="https://www.kaninshot.com/products/cherry-on-top" target="_blank" rel="noopener">
+              <span class="kfs__item-fx"></span>
+              <span class="kfs__item-title">Cherry On Top flavored Kanin Shot</span>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="kfs__item" data-flavor="napa" style="--accent:#3b723b" href="https://www.kaninshot.com/products/napa-blast" target="_blank" rel="noopener">
+              <span class="kfs__item-fx"></span>
+              <span class="kfs__item-title">Napa Blast flavored Kanin Shot</span>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="kfs__item" data-flavor="candy" style="--accent:#025596" href="https://www.kaninshot.com/products/candy-store" target="_blank" rel="noopener">
+              <span class="kfs__item-fx"></span>
+              <span class="kfs__item-title">Candy Store flavored Kanin Shot</span>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- All three bottles, always visible. Whole card links to the product page. -->
+      <div class="kfs__products">
+
+        <a class="kfs-card is-active" data-flavor="cherry" href="https://www.kaninshot.com/products/cherry-on-top" target="_blank" rel="noopener"
+           aria-label="View Cherry On Top flavored Kanin Shot"
+           style="--accent:#9e292b; --img-h:113.5%; --img-top:-5.9%; --img-tx:-50%;">
+          <div class="kfs-card__media">
+            <span class="kfs-card__glow"></span>
+            <div class="kfs-card__bottle-wrap">
+              <img class="kfs-card__bottle" alt="Cherry On Top flavored Kanin Shot" width="900" height="869"
+                   src="images/bottle-cherry-on-top-900.png"
+                   srcset="images/bottle-cherry-on-top-500.png 500w,
+                           images/bottle-cherry-on-top-900.png 900w,
+                           images/bottle-cherry-on-top-1400.png 1400w"
+                   sizes="(min-width: 992px) 640px, 70vw">
+            </div>
+            <img class="kfs-card__fruit" alt="" loading="lazy"
+                 src="images/decor-cherry-bunch-280.png">
+          </div>
+          <span class="kfs-card__btn button-circle" aria-hidden="true">
+            <span class="button-circle__inner">
+              <svg class="icon icon-circle-decoration" viewBox="0 0 44 44" fill="none" stroke-dasharray="19 47 19 47" stroke-dashoffset="-7"><circle cx="22" cy="22" r="21" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              <svg class="icon icon-inactive" viewBox="0 0 24 24" fill="none"><path d="M6 12H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 18V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            <span class="button-circle__text">View Product</span>
+          </span>
+          <div class="kfs-card__label">Cherry On Top</div>
+          <div class="kfs-card__cta">Shop <svg viewBox="0 0 24 24" fill="none"><path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
+
+        <a class="kfs-card" data-flavor="napa" href="https://www.kaninshot.com/products/napa-blast" target="_blank" rel="noopener"
+           aria-label="View Napa Blast flavored Kanin Shot"
+           style="--accent:#3b723b; --img-h:105.3%; --img-top:-1.95%; --img-tx:-46.25%;">
+          <div class="kfs-card__media">
+            <span class="kfs-card__glow"></span>
+            <div class="kfs-card__bottle-wrap">
+              <img class="kfs-card__bottle" alt="Napa Blast flavored Kanin Shot" width="900" height="900"
+                   src="images/bottle-napa-blast-900.png"
+                   srcset="images/bottle-napa-blast-500.png 500w,
+                           images/bottle-napa-blast-900.png 900w,
+                           images/bottle-napa-blast-1400.png 1400w"
+                   sizes="(min-width: 992px) 640px, 70vw">
+            </div>
+            <img class="kfs-card__fruit" alt="" loading="lazy"
+                 src="images/decor-grapes-280.png">
+          </div>
+          <span class="kfs-card__btn button-circle" aria-hidden="true">
+            <span class="button-circle__inner">
+              <svg class="icon icon-circle-decoration" viewBox="0 0 44 44" fill="none" stroke-dasharray="19 47 19 47" stroke-dashoffset="-7"><circle cx="22" cy="22" r="21" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              <svg class="icon icon-inactive" viewBox="0 0 24 24" fill="none"><path d="M6 12H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 18V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            <span class="button-circle__text">View Product</span>
+          </span>
+          <div class="kfs-card__label">Napa Blast</div>
+          <div class="kfs-card__cta">Shop <svg viewBox="0 0 24 24" fill="none"><path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
+
+        <a class="kfs-card" data-flavor="candy" href="https://www.kaninshot.com/products/candy-store" target="_blank" rel="noopener"
+           aria-label="View Candy Store flavored Kanin Shot"
+           style="--accent:#025596; --img-h:111.4%; --img-top:-5.9%; --img-tx:-50.95%;">
+          <div class="kfs-card__media">
+            <span class="kfs-card__glow"></span>
+            <div class="kfs-card__bottle-wrap">
+              <img class="kfs-card__bottle" alt="Candy Store flavored Kanin Shot" width="900" height="869"
+                   src="images/bottle-candy-store-900.png"
+                   srcset="images/bottle-candy-store-500.png 500w,
+                           images/bottle-candy-store-900.png 900w,
+                           images/bottle-candy-store-1400.png 1400w"
+                   sizes="(min-width: 992px) 640px, 70vw">
+            </div>
+            <img class="kfs-card__fruit" alt="" loading="lazy"
+                 src="images/decor-candy-280.png">
+          </div>
+          <span class="kfs-card__btn button-circle" aria-hidden="true">
+            <span class="button-circle__inner">
+              <svg class="icon icon-circle-decoration" viewBox="0 0 44 44" fill="none" stroke-dasharray="19 47 19 47" stroke-dashoffset="-7"><circle cx="22" cy="22" r="21" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              <svg class="icon icon-inactive" viewBox="0 0 24 24" fill="none"><path d="M6 12H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 18V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            <span class="button-circle__text">View Product</span>
+          </span>
+          <div class="kfs-card__label">Candy Store</div>
+          <div class="kfs-card__cta">Shop <svg viewBox="0 0 24 24" fill="none"><path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+  </div>
+
+  <div class="kp-slice" data-slice="video-gallery"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/04-video-gallery.webp" width="1440" height="1079"><img src="images/site/mobile/04-video-gallery.webp" width="390" height="906" alt="" loading="lazy" decoding="async"></picture></div>
+
+  <!-- ===== CHANGE 2: Build Your Custom Bundle (inline) ===== -->
+  <div id="change-bundle" class="kp-anchor">
+  <section class="mnj_section_bundleinline" id="mnj_section_bundleinline" aria-label="Build Your Custom Bundle">
+  <div class="mnj_panel_bundleinline">
+    <div class="mnj_inner_bundleinline" data-mnj-inner>
+
+      <!-- Main Content Column -->
+      <div class="mnj_main_col_bundleinline">
+        <div class="mnj_header_bundleinline">
+          <h2 class="mnj_title_bundleinline">Build Your Custom Bundle</h2>
+          <p class="mnj_subtitle_bundleinline">Choose your flavour, pick your pack size ,and save more with every box</p>
+        </div>
+
+        <!-- Bundle Dropdown Selection Row -->
+        <div class="mnj_selector_row_bundleinline">
+          <div class="mnj_dropdown_wrapper_bundleinline">
+            <select class="mnj_tier_select_bundleinline" data-mnj-tier aria-label="Select Bundle Size">
+              <option value="2" data-discount="20" data-shots="24" selected>2 Pack 24 Shots</option>
+              <option value="3" data-discount="30" data-shots="36">3 Pack 36 Shots</option>
+            </select>
+            <div class="mnj_dropdown_badge_bundleinline">
+              <span class="mnj_active_discount_badge_bundleinline">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                <span data-mnj-badge-text>20% Off</span>
+              </span>
+            </div>
+            <div class="mnj_dropdown_arrow_bundleinline">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Grid (same products, variants, prices and images as the live popup) -->
+        <div class="mnj_grid_bundleinline" data-mnj-grid>
+          <div class="mnj_card_bundleinline" data-product-id="8049714790592" data-variant-id="45451141120192" data-price="4499" data-title="Napa Blast flavored Kanin Shot" data-image="images/box-napa-blast-300.jpg">
+            <div class="mnj_card_image_wrapper_bundleinline"><img src="images/box-napa-blast-400.jpg" alt="Napa Blast flavored Kanin Shot" loading="lazy" width="200" height="200"></div>
+            <div class="mnj_card_info_bundleinline">
+              <h3 class="mnj_card_title_bundleinline">Napa Blast flavored Kanin Shot</h3>
+              <p class="mnj_card_price_bundleinline">$44.99</p>
+            </div>
+            <div class="mnj_card_action_row_bundleinline">
+              <div class="mnj_stepper_bundleinline">
+                <button type="button" class="mnj_stepper_btn_bundleinline mnj_decrement_bundleinline" data-action="decrease" aria-label="Decrease quantity" disabled>-</button>
+                <span class="mnj_stepper_val_bundleinline" data-qty-display>0</span>
+                <button type="button" class="mnj_stepper_btn_bundleinline mnj_increment_bundleinline" data-action="increase" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="mnj_card_bundleinline" data-product-id="8049714364608" data-variant-id="45451139285184" data-price="4499" data-title="Cherry On Top flavored Kanin Shot" data-image="images/box-cherry-on-top-300.jpg">
+            <div class="mnj_card_image_wrapper_bundleinline"><img src="images/box-cherry-on-top-400.jpg" alt="Cherry On Top flavored Kanin Shot" loading="lazy" width="200" height="200"></div>
+            <div class="mnj_card_info_bundleinline">
+              <h3 class="mnj_card_title_bundleinline">Cherry On Top flavored Kanin Shot</h3>
+              <p class="mnj_card_price_bundleinline">$44.99</p>
+            </div>
+            <div class="mnj_card_action_row_bundleinline">
+              <div class="mnj_stepper_bundleinline">
+                <button type="button" class="mnj_stepper_btn_bundleinline mnj_decrement_bundleinline" data-action="decrease" aria-label="Decrease quantity" disabled>-</button>
+                <span class="mnj_stepper_val_bundleinline" data-qty-display>0</span>
+                <button type="button" class="mnj_stepper_btn_bundleinline mnj_increment_bundleinline" data-action="increase" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="mnj_card_bundleinline" data-product-id="8049715183808" data-variant-id="45451144462528" data-price="4499" data-title="Candy Store flavored Kanin Shot" data-image="images/box-candy-store-300.jpg">
+            <div class="mnj_card_image_wrapper_bundleinline"><img src="images/box-candy-store-400.jpg" alt="Candy Store flavored Kanin Shot" loading="lazy" width="200" height="200"></div>
+            <div class="mnj_card_info_bundleinline">
+              <h3 class="mnj_card_title_bundleinline">Candy Store flavored Kanin Shot</h3>
+              <p class="mnj_card_price_bundleinline">$44.99</p>
+            </div>
+            <div class="mnj_card_action_row_bundleinline">
+              <div class="mnj_stepper_bundleinline">
+                <button type="button" class="mnj_stepper_btn_bundleinline mnj_decrement_bundleinline" data-action="decrease" aria-label="Decrease quantity" disabled>-</button>
+                <span class="mnj_stepper_val_bundleinline" data-qty-display>0</span>
+                <button type="button" class="mnj_stepper_btn_bundleinline mnj_increment_bundleinline" data-action="increase" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Sidebar Column -->
+      <div class="mnj_sidebar_bundleinline">
+        <div class="mnj_sidebar_inner_bundleinline">
+          <div class="mnj_sidebar_header_bundleinline">
+            <h3 class="mnj_sidebar_title_bundleinline">Your Bundle</h3>
+            <div class="mnj_sidebar_meta_row_bundleinline">
+              <span class="mnj_sidebar_subtitle_bundleinline" data-mnj-count>Selected Boxes(0)</span>
+              <span class="mnj_sidebar_mini_badge_bundleinline">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                <span data-mnj-sidebar-badge-text>20% Off</span>
+              </span>
+            </div>
+          </div>
+          <div class="mnj_sidebar_items_bundleinline" data-mnj-items></div>
+          <div class="mnj_sidebar_totals_bundleinline">
+            <div class="mnj_total_line_bundleinline">
+              <span data-mnj-subtotal-label>Subtotal (0 boxes)</span>
+              <span data-mnj-subtotal>$0.00</span>
+            </div>
+            <div class="mnj_total_line_bundleinline mnj_discount_line_bundleinline">
+              <span data-mnj-discount-label>Bundle Discount (20%)</span>
+              <span data-mnj-discount>-$0.00</span>
+            </div>
+            <div class="mnj_separator_bundleinline"></div>
+            <div class="mnj_total_line_bundleinline mnj_grand_total_line_bundleinline">
+              <span>Your Total</span>
+              <div class="mnj_price_display_group_bundleinline">
+                <span class="mnj_compare_price_bundleinline" data-mnj-compare></span>
+                <span class="mnj_final_price_bundleinline" data-mnj-final>$0.00</span>
+              </div>
+            </div>
+          </div>
+          <div class="mnj_progress_notice_bundleinline" data-mnj-progress>
+            <span data-mnj-progress-text>Add 2 more box to unlock <strong>20%OFF</strong></span>
+          </div>
+          <button type="button" class="mnj_cta_btn_bundleinline" data-mnj-cta disabled>
+            <span class="mnj_cta_text_bundleinline">Add Bundle To cart</span>
+            <span class="mnj_spinner_bundleinline" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  </div>
+
+  <div class="kp-slice" data-slice="our-features"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/05-our-features.webp" width="1440" height="1192"><img src="images/site/mobile/05-our-features.webp" width="390" height="528" alt="" loading="lazy" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="reviews"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/06-reviews.webp" width="1440" height="462"><img src="images/site/mobile/06-reviews.webp" width="390" height="505" alt="" loading="lazy" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="performance-slider"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/07-performance-slider.webp" width="1440" height="733"><img src="images/site/mobile/07-performance-slider.webp" width="390" height="884" alt="" loading="lazy" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="banner"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/08-banner.webp" width="1440" height="600"><img src="images/site/mobile/08-banner.webp" width="390" height="350" alt="" loading="lazy" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="featured-blog"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/09-featured-blog.webp" width="1440" height="869"><img src="images/site/mobile/09-featured-blog.webp" width="390" height="1325" alt="" loading="lazy" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="faq-simple"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/10-faq-simple.webp" width="1440" height="1221"><img src="images/site/mobile/10-faq-simple.webp" width="390" height="1870" alt="" loading="lazy" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="promo-banner"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/13-promo-banner.webp" width="1440" height="500"><img src="images/site/mobile/13-promo-banner.webp" width="390" height="360" alt="" loading="lazy" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="footer"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/14-footer.webp" width="1440" height="731"><img src="images/site/mobile/14-footer.webp" width="390" height="736" alt="" loading="lazy" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="disclaimer"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/15-disclaimer.webp" width="1440" height="243"><img src="images/site/mobile/15-disclaimer.webp" width="390" height="303" alt="" loading="lazy" decoding="async"></picture></div>
+  <div class="kp-slice" data-slice="disclaimer"><picture><source media="(min-width: 900px)" srcset="images/site/desktop/16-disclaimer.webp" width="1440" height="229"><img src="images/site/mobile/16-disclaimer.webp" width="390" height="396" alt="" loading="lazy" decoding="async"></picture></div>
+</div>
+
+<div class="mnj_toast_bundleinline" role="status" aria-live="polite" data-mnj-toast></div>
+
+<nav class="kp-jump" aria-label="Jump to a proposed change">
+  <span>Jump to</span>
+  <a href="#change-flavors">1 · Flavor section</a>
+  <a href="#change-bundle">2 · Bundle builder</a>
+</nav>
+
+<script>
+  // Desktop: lay the page out at the live site's 1440px width and scale it to the window. Phones/tablets: natural width.
+  (function () {
+    var frame = document.getElementById('kp-frame');
+    function fit() {
+      var vw = document.documentElement.clientWidth;
+      frame.style.zoom = vw >= 900 ? vw / 1440 : '';
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    document.querySelectorAll('.kp-jump a').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', a.getAttribute('href'));
+      });
+    });
+  })();
+</script>
+<script src="js/flavor-section.js"></script>
+<script src="js/bundle-builder.js"></script>
+</body>
+</html>
